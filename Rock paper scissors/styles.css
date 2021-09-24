@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
 
 * {
     margin: 0;
@@ -20,10 +21,120 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 17em;
+}
+
+.versus {
+    font-family: "kalam", monospace;
+    font-weight: 700;
+    font-size: 7rem;
 }
 
 button {
     display: block;
+}
+
+.player-container, .com-container {
+    background: #1c232a;
+    height: 90%;
+}
+
+
+.player-container .name, .com-container .name{
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: .5em 0;
+}
+
+.player-container .score{
+    background: #7ebdc2;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: .5em 0;
+    color: black;
+}
+
+.com-container .score{
+    background: #F3DFA2;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: .5em 0;
+    color: black;
+}
+
+.player-container .number{
+    background: #F3DFA2;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    padding: .2em 0;
+    color: black;
+}
+
+.com-container .number{
+    background: #7ebdc2;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    padding: .2em 0;
+    color: black;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2.5em 0;
+    width: 14em;
+}
+
+button {
+    width: 8em;
+    height: 8em;
+    border: none;
+    border-radius: 100%;
+}
+
+button:hover {
+    border: 2px solid #1c232a;
+    transition: border 0.1s linear;
+    cursor: pointer;
+}
+
+button + button {
+    margin-top: 2.7em;
+}
+
+button img {
+    width: 80%;
+}
+
+.player-container .rock {
+    background: #7ebdc2;
+}
+
+.player-container .scissors {
+    background: #F3DFA2;
+}
+
+.player-container .paper {
+    background: #efe6dd;
+}
+
+.com-container .rock {
+    background: #7ebdc2;
+}
+
+.com-container .scissors {
+    background: #F3DFA2;
+}
+
+.com-container .paper {
+    background: #efe6dd;
 }
 
 
