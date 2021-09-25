@@ -8,59 +8,53 @@ const comRock = document.body.querySelectorAll("button")[5];
 let playerScore = document.querySelectorAll(".number")[0];
 let comScore = document.querySelectorAll(".number")[1];
 function random() {
-    const randomIndex = Math.floor(Math.random() * 3);
-    return randomIndex;
+  const randomIndex = Math.floor(Math.random() * 3);
+  return randomIndex;
 }
 
 function rules(player, com) {
-    if(player == 0 && com == 0 || player == 1 && com == 2 || player == 2 && com == 1 ) {
-        return "player";
-    } else if(player == com) {
-        return "both";
-    } else {
-        return "com";
-    }
+  if (
+    (player == 0 && com == 0) ||
+    (player == 1 && com == 2) ||
+    (player == 2 && com == 1)
+  ) {
+    return "player";
+  } else if ((player == 0 && com == 1) || (player == 1 && com == 0) || (player == 2 && com == 2)) {
+    return "com";
+  } else {
+    return "both";
+  }
 }
 
-function select(e) {
-    console.log(e);
-    e.style.border = "1.7px solid white";
-    const player = [];
-    let playerIndex;
-    for(i=0;i<3;i++) {
-        player[i] = document.querySelectorAll("button")[i];
-        if(player[i] == e.target) {
-            playerIndex = i;
+function select() {
+  const player = [playerRock, playerPaper, playerScissors];
+  console.log(player);
+  for(i = 0; i < player.length; i++) {
+      let playerIndex = i;
+    player[i].addEventListener("click", function (e) {
+        for(i=0; i<document.querySelectorAll("button").length; i++) {
+            document.querySelectorAll("button")[i].style.background = "#efe6dd"
         }
-    }
-    const com = [];
-    for(i=5;i>2;i--) {
-        com[i] = document.querySelectorAll("button")[i];
-    }
-    console.log(playerIndex);
-    let comIndex = random();
-    com[comIndex].style.border = "1.7px solid white";
-
-    switch(rules(playerIndex, comIndex)) {
-        case "player":
-           let score = Number(playerScore.textContent);
-           score++;
-           playerScore.textContent = score;
+        e.currentTarget.style.background = "#7ebdc2";
+        const com = [comScissors, comPaper, comRock];
+        let comIndex = random();
+        com[comIndex].style.background = "#F3DFA2";
+        console.log(com[comIndex]);
+  
+        switch (rules(playerIndex, comIndex)) {
+          case "player":
+            playerScore.textContent =  Number(playerScore.textContent) + 1;
             break;
-        case "both":
-            let pScore = Number(playerScore.textContent);
-            pScore++;
-            playerScore.textContent = pScore;
-            let cScore = Number(comScore.textContent);
-            cScore++;
-            comScore.textContent = cScore;
+          case "both":
+            playerScore.textContent =  Number(playerScore.textContent) + 1;
+            comScore.textContent = Number(comScore.textContent) + 1;
             break;
-        case "com":
-            cScore++;
-            comScore.textContent = cScore;
-    }
+          case "com":
+            comScore.textContent = Number(comScore.textContent) + 1;
+            break;
+        }
+      });
+  }
 }
 
-playerRock.addEventListener("click",select);
-playerScissors.addEventListener("click",select);
-playerPaper.addEventListener("click",select);
+select();

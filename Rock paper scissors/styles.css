@@ -99,6 +99,10 @@ button {
     border-radius: 100%;
 }
 
+.active {
+    border: 2px solid white;
+}
+
 button:hover {
     border: 2px solid #1c232a;
     transition: border 0.1s linear;
@@ -113,29 +117,11 @@ button img {
     width: 80%;
 }
 
-.player-container .rock {
-    background: #7ebdc2;
-}
-
-.player-container .scissors {
-    background: #F3DFA2;
-}
-
-.player-container .paper {
+.player-container button,
+.com-container button {
     background: #efe6dd;
 }
 
-.com-container .rock {
-    background: #7ebdc2;
-}
-
-.com-container .scissors {
-    background: #F3DFA2;
-}
-
-.com-container .paper {
-    background: #efe6dd;
-}
 
 
 
